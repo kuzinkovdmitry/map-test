@@ -1,0 +1,6 @@
+<p class="list__title">Cities after mouseover</p>
+<div class="list__item"
+     *ngFor="let city of citiesList">
+  <p class="list__item-name">{{city?.name}}</p>
+  <mat-icon (click)="removeSelectedCity(city)">close</mat-icon>
+</div>

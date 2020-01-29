@@ -1,0 +1,33 @@
+<mat-tree [dataSource]="dataSource"
+          [treeControl]="treeControl"
+          class="__map-tree">
+  <mat-tree-node *matTreeNodeDef="let node">
+    <li class="mat-tree-node">
+      <button mat-icon-button disabled></button>
+      <p class="tree__item-name"
+         [ngClass]="{'__selected': node.selected}"
+         (click)="selectCity(node)">
+        {{node.name}}
+      </p>
+    </li>
+  </mat-tree-node>
+  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+    <li>
+      <div class="mat-tree-node">
+        <button mat-icon-button matTreeNodeToggle>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        <p class="tree__item-name"
+           (click)="selectCity(node)">
+          {{node.name}}
+        </p>
+      </div>
+      <ul class="tree__item"
+          [ngClass]="{'__invisible': !treeControl.isExpanded(node)}">
+        <ng-container matTreeNodeOutlet></ng-container>
+      </ul>
+    </li>
+  </mat-nested-tree-node>
+</mat-tree>

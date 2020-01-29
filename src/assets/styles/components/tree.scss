@@ -1,0 +1,32 @@
+.__map-tree {
+  ul,
+  li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+
+  .tree {
+    &__item {
+      &.__invisible {
+        display: none;
+      }
+    }
+
+    &__item-name {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      height: 40px;
+
+      &.__selected {
+        font-weight: bold;
+        cursor: default;
+      }
+    }
+  }
+
+  .mat-tree-node {
+    cursor: pointer;
+  }
+}
